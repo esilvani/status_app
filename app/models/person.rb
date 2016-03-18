@@ -5,4 +5,8 @@ class Person < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :statuses
+
+  def status
+    statuses.not_expired.latest
+  end
 end
