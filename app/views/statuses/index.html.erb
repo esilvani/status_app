@@ -1,1 +1,6 @@
 <h1> This is the statuses page </h1>
+
+<% @followed_people.each do |following| %>
+  <%= following.email %>
+<ul><p>  <%= following.status.try(:text) %> </p></ul>
+<% end %>

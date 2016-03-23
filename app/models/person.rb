@@ -6,7 +6,7 @@ class Person < ActiveRecord::Base
 
   has_many :statuses
   has_many :friends, foreign_key: "follower_id", dependent: :destroy
-  has_many :followed_users, through: :friends, source: :following
+  has_many :followed_people, through: :friends, source: :following
 
   has_many :reverse_friends, foreign_key: "following_id",
                              class_name:  "Friend",
