@@ -1,6 +1,0 @@
-<h1> All users index page </h1>
-
-<% @people.each do |person| %>
-    <%= button_to person.email, follow_path(person) %>
-    <% unless current_person.followed_people.include?(person) %>
-<% end %>

@@ -1,0 +1,11 @@
+<h1> All users index page </h1>
+
+<% @people.each do |person| %>
+  <% next if person == current_person %>
+  <%= person.email %>
+  <% if current_person.followed_people.include?(person) %>
+    <%= button_to 'Unfollow', unfollow_person_path(person) %>
+  <% else %>
+    <%= button_to 'Follow', follow_person_path(person) %>
+  <% end %>
+<% end %>

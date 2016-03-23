@@ -4,9 +4,14 @@ Rails.application.routes.draw do
   root 'statuses#index'
   resources :statuses, only: [:new, :create, :index, :show]
 
-  post 'follow/:id' => 'friends#follow', as: "follow"
+  resources :people, only: [:index, :show] do
+    member do
+      post :follow
+      post :unfollow
+    end
+  end
 
-  get "user_list" => 'friends#index', as: "user_list"
+  get "friends" => 'friends#index'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
