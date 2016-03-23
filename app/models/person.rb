@@ -5,6 +5,19 @@ class Person < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :statuses
+  has_many :friends, foreign_key: "follower_id", dependent: :destroy
+  has_many :followed_users, through: :friends, source: :following
+
+  has_many :reverse_friends, foreign_key: "following_id",
+                             class_name:  "Friend",
+                             dependent:   :destroy
+
+  has_many :followers, through: :reverse_friends, source: :follower
+
+
+
+
+
 
   def status
     statuses.not_expired.latest

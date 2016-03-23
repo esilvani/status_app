@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160318010925) do
+ActiveRecord::Schema.define(version: 20160322232435) do
+
+  create_table "friends", force: :cascade do |t|
+    t.integer  "follower_id"
+    t.integer  "following_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "friends", ["follower_id"], name: "index_friends_on_follower_id"
+  add_index "friends", ["following_id"], name: "index_friends_on_following_id"
 
   create_table "people", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
