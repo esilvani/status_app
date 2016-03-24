@@ -19,8 +19,8 @@
             <li><%= link_to 'Find Friends', people_path %></li>
             <li><%= link_to 'Log Out', destroy_person_session_path, method: 'delete' %></li>
           <% else %>
-            <li><%= link_to 'Sign Up', new_person_registration_path %></li>
-            <li><%= link_to 'Sign In', new_person_session_path %></li>
+            <!-- <li><%= link_to 'Sign Up', new_person_registration_path %></li> -->
+            <li><%= link_to 'Sign In', new_person_session_path, type: "button", class: "btn-btn primary" %></li>
           <% end %>
         </ul>
       </div>

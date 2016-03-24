@@ -1,4 +1,13 @@
-<h1>StatusApp is awesome!</h1>
+<div class="jumbotron">
+<h1>Welcome to STATUS!</h1>
+<br></br>
+<h4>Ever get tired of having to text <em>"yo, what are you up to"</em> to each of your friends to make plans?</h4>
+<p></p>
+<h4>Use status to see what all your friends are up to, all at once!</h4>
+<br></br>
 
-<%= link_to "Sign up today!", new_person_registration_path %>
-<%= link_to "Sign in instead", new_person_session_path %>
+
+<%= link_to "Sign up today!", new_person_registration_path, type: "button", class: "btn btn-primary" %>
+<p></p>
+<%= link_to "Sign in", new_person_session_path, type: "button", class: "btn btn-default" %>
+</div>

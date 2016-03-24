@@ -1,11 +1,17 @@
 <h1> Know anyone? </h1>
+<section class="col-md-4">
 
-<% @people.each do |person| %>
-  <% next if person == current_person %>
-  <%= person.email %>
-  <% if current_person.followed_people.include?(person) %>
-    <%= button_to 'Unfollow', unfollow_person_path(person) %>
-  <% else %>
-    <%= button_to 'Follow', follow_person_path(person) %>
-  <% end %>
-<% end %>
+    <% @people.each do |person| %>
+      <div class="well well-sm">
+        <% next if person == current_person %>
+        <%= person.email %>
+        <% if current_person.followed_people.include?(person) %>
+          <%= button_to 'Unfollow', unfollow_person_path(person), class:"btn btn-link" %>
+        <% else %>
+          <%= button_to 'Follow', follow_person_path(person) %>
+        <% end %>
+      </div>
+
+      <% end %>
+
+</section>
