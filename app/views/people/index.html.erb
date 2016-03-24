@@ -2,8 +2,9 @@
 <section class="col-md-4">
 
     <% @people.each do |person| %>
-      <div class="well well-sm">
+
         <% next if person == current_person %>
+          <div class="well well-sm">
         <%= person.email %>
         <% if current_person.followed_people.include?(person) %>
           <%= button_to 'Unfollow', unfollow_person_path(person), class:"btn btn-link" %>
