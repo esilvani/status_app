@@ -1,0 +1,10 @@
+<h2> What are you up to tonight? </h2>
+
+<%= form_for @status do |form| %>
+  <div>
+    <%= form.label :text %>
+    <%= form.text_field :text%>
+  </div>
+
+  <%= form.submit "Update Status" %>
+<% end %>

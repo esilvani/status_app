@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :people
+  devise_for :people, controllers: { registrations: "person/registrations" }
 
-  root 'statuses#index'
+  root 'welcome#index'
   resources :statuses, only: [:new, :create, :index, :show]
 
   resources :people, only: [:index, :show] do

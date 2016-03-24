@@ -1,10 +1,6 @@
 class StatusesController < ApplicationController
   def index
-    if person_signed_in?
-      @followed_people = current_person.followed_people
-    else
-      render 'welcome'
-    end
+    @followed_people = current_person.followed_people
   end
 
   def new
@@ -23,6 +19,6 @@ class StatusesController < ApplicationController
 
   private
   def safe_status_params
-    params.require(:text).permit(:text)
+    params.require(:status).permit(:text)
   end
 end
