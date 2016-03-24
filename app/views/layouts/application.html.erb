@@ -1,21 +1,33 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>StatusApp</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <p>
-      <% if person_signed_in? %>
-        <%= current_person.email %>
-        <%= link_to 'Sign Out', destroy_person_session_path, method: :delete %>
-      <% else %>
-        <%= link_to 'Sign In', new_person_session_path %> | <%= link_to 'Sign Up', new_person_registration_path %>
-      <% end %>
-    </p>
-<%= yield %>
+  <head>
+    <title>StatusApp</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <%= link_to 'STATUS', statuses_path, class: 'navbar-brand' %>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <% if person_signed_in? %>
+            <!-- <li><%= link_to 'Statuses', statuses_path %></li> -->
+            <li><%= link_to 'My Status', new_status_path %></li>
+            <li><%= link_to 'Find Friends', people_path %></li>
+            <li><%= link_to 'Log Out', destroy_person_session_path, method: 'delete' %></li>
+          <% else %>
+            <li><%= link_to 'Sign Up', new_person_registration_path %></li>
+            <li><%= link_to 'Sign In', new_person_session_path %></li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
 
-</body>
+    <div class="container-fluid">
+      <%= yield %>
+    </div>
+  </body>
 </html>

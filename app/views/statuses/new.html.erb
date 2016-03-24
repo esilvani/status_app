@@ -1,10 +1,14 @@
 <h2> What are you up to tonight? </h2>
 
-<%= form_for @status do |form| %>
-  <div>
-    <%= form.label :text %>
-    <%= form.text_field :text%>
-  </div>
+<div class="row">
+  <div class="col-md-4">
+    <%= form_for @status, class: 'form-inline' do |form| %>
+      <div class='form-group'>
+        <%= form.label :text %>
+        <%= form.text_field :text, class: 'form-control' %>
+      </div>
 
-  <%= form.submit "Update Status" %>
-<% end %>
+      <%= form.submit "Update Status", class: 'btn-primary' %>
+    <% end %>
+  </div>
+</div>
